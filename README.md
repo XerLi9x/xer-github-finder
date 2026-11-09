@@ -23,7 +23,6 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/XerLi9x/xer-github-finder.git
-cd xer-github-finder
 ```
 
 Create a virtual environment:
