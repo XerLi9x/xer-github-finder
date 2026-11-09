@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Xer GitHub Finder</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span class="github-icon">⌘</span>
+            XER <span>GITHUB FINDER</span>
+        </div>
+
+        <div class="status">
+            <span class="dot"></span>
+            GitHub API
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div class="tag">PYTHON PROJECT</div>
+
+            <h1>Discover Amazing<br>
+                <span>GitHub Projects</span>
+            </h1>
+
+            <p>
+                Search thousands of open-source repositories.
+                Find the tools and projects you need.
+            </p>
+
+        </section>
+
+
+        <section class="search-box">
+
+            <form method="POST">
+
+                <label>Search Keywords</label>
+
+                <input
+                    type="text"
+                    name="query"
+                    placeholder="Example: network scanner"
+                    required
+                >
+
+
+                <div class="filters">
+
+                    <div class="field">
+                        <label>Programming Language</label>
+
+                        <select name="language">
+                            <option value="">All Languages</option>
+                            <option value="Python">Python</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="Go">Go</option>
+                            <option value="Rust">Rust</option>
+                            <option value="C">C</option>
+                            <option value="Java">Java</option>
+                            <option value="PHP">PHP</option>
+                            <option value="Shell">Shell</option>
+                        </select>
+                    </div>
+
+
+                    <div class="field">
+                        <label>Minimum Stars</label>
+
+                        <input
+                            type="number"
+                            name="min_stars"
+                            value="0"
+                            min="0"
+                        >
+                    </div>
+
+
+                    <div class="field">
+                        <label>Sort By</label>
+
+                        <select name="sort">
+                            <option value="stars">Most Stars</option>
+                            <option value="updated">Recently Updated</option>
+                        </select>
+                    </div>
+
+
+                    <div class="field">
+                        <label>Results</label>
+
+                        <select name="per_page">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <button type="submit">
+                    Search GitHub →
+                </button>
+
+            </form>
+
+        </section>
+
+
+        {% if error %}
+
+            <div class="error">
+                {{ error }}
+            </div>
+
+        {% endif %}
+
+
+        {% if searched and not error %}
+
+            <div class="results-header">
+                <h2>Search Results</h2>
+
+                <span>{{ results|length }} Projects Found</span>
+            </div>
+
+
+            {% if results %}
+
+                <section class="results-grid">
+
+                    {% for repo in results %}
+
+                        <article class="repo-card">
+
+                            <div class="repo-top">
+                                <span class="repo-icon">📁</span>
+
+                                <span class="stars">
+                                    ★ {{ repo.stars }}
+                                </span>
+                            </div>
+
+
+                            <h3>{{ repo.name }}</h3>
+
+
+                            <p class="description">
+                                {{ repo.description or "No description available." }}
+                            </p>
+
+
+                            <div class="repo-info">
+
+                                <span>
+                                    {{ repo.language or "Unknown" }}
+                                </span>
+
+                                <span>
+                                    🍴 {{ repo.forks }} Forks
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="{{ repo.url }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="repo-link"
+                            >
+                                View on GitHub →
+                            </a>
+
+                        </article>
+
+                    {% endfor %}
+
+                </section>
+
+            {% else %}
+
+                <div class="empty">
+                    No repositories found. Try another search.
+                </div>
+
+            {% endif %}
+
+        {% endif %}
+
+    </main>
+
+
+    <footer>
+        XER GITHUB FINDER · Built with Python & Flask
+    </footer>
+
+</body>
+</html>
+
