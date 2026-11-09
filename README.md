@@ -22,7 +22,7 @@ A simple Python application for searching GitHub repositories through the GitHub
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/xer-github-finder.git
+git clone https://github.com/XerLi9x/xer-github-finder.git
 cd xer-github-finder
 ```
 
