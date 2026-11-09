@@ -160,10 +160,20 @@
                             <h3>{{ repo.name }}</h3>
 
 
-                            <p class="description">
-                                {{ repo.description or "No description available." }}
-                            </p>
+                            <div class="description-container">
 
+                                <p class="description">
+                                    {{ repo.description or "No description available." }}
+                                </p>
+                            
+                                {% if repo.description and repo.description|length > 120 %}
+                                    <details class="description-details">
+                                        <summary>Show full description</summary>
+                                        <p>{{ repo.description }}</p>
+                                    </details>
+                                {% endif %}
+                            
+                            </div>
 
                             <div class="repo-info">
 

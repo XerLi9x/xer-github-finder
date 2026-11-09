@@ -202,8 +202,49 @@ button:hover {
     color: #94a3b8;
     font-size: 13px;
     line-height: 1.7;
-    min-height: 65px;
     overflow-wrap: anywhere;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    min-height: 44px;
+}
+
+.description-details {
+    margin-top: 8px;
+}
+
+.description-details summary {
+    color: #38bdf8;
+    font-size: 12px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.description-details summary:hover {
+    color: #7dd3fc;
+}
+
+.description-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.description-details summary::before {
+    content: "+ ";
+}
+
+.description-details[open] summary::before {
+    content: "- ";
+}
+
+.description-details p {
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    margin-top: 10px;
 }
 
 .repo-info {
