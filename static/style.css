@@ -1,0 +1,280 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0b0f19;
+    color: #e5e7eb;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.header {
+    height: 75px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #202938;
+    background: #0e1421;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.logo span:last-child {
+    color: #38bdf8;
+}
+
+.github-icon {
+    color: #38bdf8;
+    margin-right: 8px;
+    font-size: 24px;
+}
+
+.status {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.container {
+    width: 84%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 75px 0 40px;
+}
+
+.tag {
+    display: inline-block;
+    color: #38bdf8;
+    border: 1px solid #164e63;
+    background: #082f49;
+    padding: 7px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: 46px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: #38bdf8;
+}
+
+.hero p {
+    color: #94a3b8;
+    line-height: 1.7;
+}
+
+.search-box {
+    background: #111827;
+    border: 1px solid #263449;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 45px;
+}
+
+label {
+    display: block;
+    color: #cbd5e1;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+input, select {
+    width: 100%;
+    background: #0b1220;
+    border: 1px solid #334155;
+    color: #fff;
+    padding: 13px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    border-color: #38bdf8;
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 22px;
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    background: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #0369a1;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.results-header span {
+    color: #38bdf8;
+    font-size: 13px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.repo-card {
+    background: #111827;
+    border: 1px solid #263449;
+    border-radius: 12px;
+    padding: 22px;
+    transition: 0.2s;
+}
+
+.repo-card:hover {
+    border-color: #0ea5e9;
+    transform: translateY(-3px);
+}
+
+.repo-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.repo-icon {
+    font-size: 22px;
+}
+
+.stars {
+    color: #fbbf24;
+    font-size: 14px;
+}
+
+.repo-card h3 {
+    color: #38bdf8;
+    font-size: 17px;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.description {
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 65px;
+    overflow-wrap: anywhere;
+}
+
+.repo-info {
+    display: flex;
+    justify-content: space-between;
+    color: #cbd5e1;
+    font-size: 12px;
+    margin: 20px 0;
+}
+
+.repo-link {
+    display: block;
+    text-align: center;
+    padding: 11px;
+    background: #082f49;
+    border: 1px solid #164e63;
+    color: #38bdf8;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+.repo-link:hover {
+    background: #164e63;
+}
+
+.error, .empty {
+    background: #301b25;
+    color: #fca5a5;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+footer {
+    border-top: 1px solid #202938;
+    padding: 25px;
+    text-align: center;
+    color: #64748b;
+    font-size: 12px;
+}
+
+@media (max-width: 850px) {
+    .filters {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        width: 92%;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .filters, .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        padding: 0 4%;
+    }
+
+    .search-box {
+        padding: 18px;
+    }
+}
+
